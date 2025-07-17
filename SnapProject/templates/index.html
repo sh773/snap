@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snap</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Snap</h1>
+    <form method="post">
+      <label>국어 백분위: <input type="number" name="korean" required></label>
+      <label>수학 백분위: <input type="number" name="math" required></label>
+      <label>탐구1 백분위: <input type="number" name="science1" required></label>
+      <label>탐구2 백분위: <input type="number" name="science2" required></label>
+      <label>영어 등급:
+        <select name="english_grade">
+          {% for i in range(1,10) %}
+          <option value="{{i}}">{{i}} 등급</option>
+          {% endfor %}
+        </select>
+      </label>
+      <button type="submit">조회하기</button>
+    </form>
+
+    {% if my_input %}
+      <div class="input-summary">
+        <h2>내 입력 정보</h2>
+        <ul>
+          <li>국어: {{ my_input['국어'] }}</li>
+          <li>수학: {{ my_input['수학'] }}</li>
+          <li>탐구1: {{ my_input['탐구1'] }}</li>
+          <li>탐구2: {{ my_input['탐구2'] }}</li>
+          <li>탐구 평균: {{ my_input['탐구평균'] }}</li>
+          <li>영어 등급: {{ my_input['영어등급'] }}</li>
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if result %}
+      <div class="result">
+        {% for 군, records in result.items() %}
+          <h2>{{군}}군</h2>
+          <table>
+            <tr>
+              <th>대학/학과</th>
+              <th>컷</th>
+              <th>내 환산점수</th>
+              <th>컷 초과분</th>
+              <th>지원가능 단계</th>
+            </tr>
+            {% for item in records %}
+            <tr class="
+              {% if item['지원가능'] == '매우 가능' %}very-possible
+              {% elif item['지원가능'] == '가능' %}possible
+              {% elif item['지원가능'] == '조금 가능' %}somewhat-possible
+              {% else %}impossible{% endif %}">
+              <td>{{item['대학_과']}}</td>
+              <td>{{item['컷']}}</td>
+              <td>{{item['내환산점수']}}</td>
+              <td>{{item['초과']}}</td>
+              <td>{{item['지원가능']}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body {
+  font-family: 'Segoe UI', 'Noto Sans KR', 'Roboto', sans-serif;
+  background-color: #F2FAFD;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  font-size: 14px;
+}
+
+input, select {
+  padding: 6px 10px;
+  border: 1px solid #B3D7F5;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4DA6FF;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #3399FF;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #E6F7FF;
+}
+
+.input-summary {
+  background-color: #E6F7FF;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.input-summary h2 {
+  color: #222;
+}
+
+.input-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.input-summary li {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+/* 단계별 결과 색상 */
+.very-possible {
+  background-color: #D0F5E7;
+}
+
+.possible {
+  background-color: #E6FFFA;
+}
+
+.somewhat-possible {
+  background-color: #FFF8DC;
+}
+
+.impossible {
+  background-color: #FFE5E5;
+}
